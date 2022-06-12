@@ -22,7 +22,7 @@ and...
 5. more default objects
 6. make doc better
 
-told me more in issue!
+told me more in Github issue!
 
 ## Links
 [Github](https://github.com/Iso-Legend-Ch/Game_Engine_Lite)  
