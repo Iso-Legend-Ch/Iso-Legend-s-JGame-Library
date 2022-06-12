@@ -20,7 +20,7 @@ and...
 3. timer
 4. debug mode
 5. more default objects
-6. make doc better
+6. make doc better 
 
 told me more in issue!
 
