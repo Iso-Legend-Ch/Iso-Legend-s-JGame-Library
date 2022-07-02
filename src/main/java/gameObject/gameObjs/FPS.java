@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
- * not done yet QwQ
+ * FPS sys
  */
 public class FPS extends GameObject {
     int loopFps;
@@ -36,7 +36,7 @@ public class FPS extends GameObject {
     public Image render() {
         Image image = new BufferedImage(Integer.valueOf(FrmConfig.WIDTH.getData())
                 , Integer.valueOf(FrmConfig.HEIGHT.getData())
-                , BufferedImage.TYPE_INT_RGB);
+                , BufferedImage.TYPE_INT_ARGB);
         Graphics graphics = image.getGraphics();
         graphics.setColor(Color.WHITE);
         graphics.drawString("FPS: " + loopFps, 0, 10);

@@ -1,6 +1,7 @@
 package main;
 
 import frm.Frm;
+import gameObject.gameObjs.FPS;
 import gameObject.gameObjs.Player;
 import input.KeyInput;
 import input.MouseInput;
@@ -32,7 +33,7 @@ public class Main {
         this.sysSetup();
 
         /** do something under this */
-        //Game.get().addGui(FPS.get());
+        Game.get().addGui(FPS.get());
         Game.get().addObject(Player.get());
     }
 
