@@ -10,9 +10,14 @@ public enum GameConfig {
     DEBUG_MODE("true"),
 
     /**
-     * yes, and I will add MAX_UPS later
+     * yes, just like its name
      */
     MAX_FPS("100"),
+
+    /**
+     * yes, just like its name
+     */
+    MAX_UPS("60"),
 
     /**
      * just the default title of frame

@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
- * FPS sys
+ * an object for FPS displaying
  */
 public class FPS extends GameObject {
     int loopFps;

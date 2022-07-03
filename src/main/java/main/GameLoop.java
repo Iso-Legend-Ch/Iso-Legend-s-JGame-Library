@@ -1,7 +1,11 @@
 package main;
 
-import config.GameConfig;
 import frm.Frm;
+import main.timers.Render;
+import main.timers.Stat;
+import main.timers.Update;
+
+import java.util.ArrayList;
 
 /**
  * a loop
@@ -9,12 +13,11 @@ import frm.Frm;
 public class GameLoop implements Runnable {
     private static GameLoop gameloop = null;
 
-    private double updateRate = 1d / (double) Integer.valueOf(GameConfig.MAX_FPS.getData());
-
     private boolean running;
-    private int updateTime, renderTime;
-    private int fps, ups;
-    private double nextStatTime;
+    public int updateTime, renderTime;
+    public int fps, ups;
+
+    private ArrayList<Timer> timers = new ArrayList<>();
 
     private GameLoop() {
     }
@@ -31,45 +34,18 @@ public class GameLoop implements Runnable {
         Frm frm = Frm.get(0);
         frm.show();
 
+        Timer upsTimer = new Update();
+        Timer fpsTimer = new Render();
+        Timer statTimer = new Stat();
+
+        timers.add(upsTimer);
+        timers.add(fpsTimer);
+        timers.add(statTimer);
+
         running = true;
-        double lastUpdate = System.currentTimeMillis(), currentTimeMillis;
-        double accumulator = 0;
-        nextStatTime = System.currentTimeMillis() + 1000d;
         while (running) {
-            currentTimeMillis = System.currentTimeMillis();
-            accumulator += currentTimeMillis - lastUpdate;
-            lastUpdate = currentTimeMillis;
-            if (accumulator > updateRate * 1000d) {
-                update();
-                render();
-                accumulator -= updateRate * 1000d;
-            }
-            if (nextStatTime < System.currentTimeMillis()) {
-                nextStatTime += 1000d;
-                stat();
-            }
+            timers.forEach(timer -> timer.update());
         }
-    }
-
-    private void update() {
-        Game.get().update();
-
-        updateTime++;
-    }
-
-    private void render() {
-        Game.get().render();
-
-        renderTime++;
-    }
-
-    private void stat() {
-        fps = renderTime;
-        ups = updateTime;
-        renderTime = 0;
-        updateTime = 0;
-
-        System.out.println(getFps() + "/" + getUps());
     }
 
     public int getFps() {
