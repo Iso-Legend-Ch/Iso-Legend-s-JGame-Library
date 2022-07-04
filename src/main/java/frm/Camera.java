@@ -50,7 +50,6 @@ public class Camera {
     public Position getPosition() {
         return position;
     }
-
     /**
      * stop following the object on focus
      */
