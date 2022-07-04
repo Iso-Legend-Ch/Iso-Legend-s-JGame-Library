@@ -43,11 +43,9 @@ public class MouseInput implements MouseListener, MouseMotionListener {
         isClicked = true;
     }
 
-    public void setStat(int code, boolean stat) {
-        if (isPressed.size() - 1 < code) {
-            for (int i = 0; code + 1 - isPressed.size() >= 1; i++) {
-                isPressed.add(false);
-            }
+    private void setStat(int code, boolean stat) {
+        for (int i = isPressed.size(); i <= code; i++) {
+            isPressed.add(false);
         }
         isPressed.set(code, stat);
     }
@@ -85,6 +83,9 @@ public class MouseInput implements MouseListener, MouseMotionListener {
     }
 
     public boolean getIsPressed(int keyCode) {
+        for (int i = isPressed.size(); i <= keyCode; i++) {
+            isPressed.add(false);
+        }
         return isPressed.get(keyCode);
     }
 }

@@ -39,8 +39,8 @@ public class Camera {
             int objCenterX = gameObjectOnFocus.getPosition().getIntX() + (gameObjectOnFocus.getSize().getWidth() / 2);
             int objCenterY = gameObjectOnFocus.getPosition().getIntY() + (gameObjectOnFocus.getSize().getHeight() / 2);
 
-            this.setPosition(objCenterX - (Integer.valueOf(FrmConfig.WIDTH.getData()) / 2),
-                    objCenterY - (Integer.valueOf(FrmConfig.HEIGHT.getData()) / 2));
+            this.setPosition(objCenterX - (Integer.parseInt(FrmConfig.WIDTH.getData()) / 2),
+                    objCenterY - (Integer.parseInt(FrmConfig.HEIGHT.getData()) / 2));
         }
     }
 
@@ -62,16 +62,7 @@ public class Camera {
      * move the camera
      */
     public void setPosition(Position position) {
-        if (position.getIntX() >= 0) {
-            this.position = new Position(position.getIntX(), this.position.getIntY());
-        } else {
-            this.setPosition(new Position(0, position.getIntY()));
-        }
-        if (position.getIntY() >= 0) {
-            this.position = new Position(this.position.getIntX(), position.getIntY());
-        } else {
-            this.setPosition(new Position(position.getIntX(), 0));
-        }
+        this.position = new Position(position.getIntX(), this.position.getIntY());
     }
 
     /**

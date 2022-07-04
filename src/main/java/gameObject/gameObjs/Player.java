@@ -6,6 +6,7 @@ import gameObject.GameObject;
 import input.MouseInput;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 /**
@@ -34,9 +35,13 @@ public class Player extends GameObject {
 
     @Override
     public Image render() {
-        Image image = new BufferedImage(50, 50, BufferedImage.TYPE_INT_RGB);
+        Image image = new BufferedImage(50, 50, BufferedImage.TYPE_INT_ARGB);
         Graphics graphics = image.getGraphics();
-        graphics.setColor(Color.WHITE);
+        if (MouseInput.get().getIsPressed(MouseEvent.BUTTON1)) {
+            graphics.setColor(Color.RED);
+        } else {
+            graphics.setColor(Color.WHITE);
+        }
         graphics.fillRect(0, 0, 50, 50);
         graphics.dispose();
 

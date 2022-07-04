@@ -38,13 +38,13 @@ public class GameLoop implements Runnable {
         Timer fpsTimer = new Render();
         Timer statTimer = new Stat();
 
-        timers.add(upsTimer);
-        timers.add(fpsTimer);
-        timers.add(statTimer);
+        this.addTimer(upsTimer);
+        this.addTimer(fpsTimer);
+        this.addTimer(statTimer);
 
         running = true;
         while (running) {
-            timers.forEach(timer -> timer.update());
+            timers.forEach(Timer::update);
         }
     }
 
@@ -54,5 +54,9 @@ public class GameLoop implements Runnable {
 
     public int getUps() {
         return ups;
+    }
+
+    public void addTimer(Timer timer){
+        this.timers.add(timer);
     }
 }

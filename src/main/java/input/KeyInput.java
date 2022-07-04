@@ -28,10 +28,8 @@ public class KeyInput implements KeyListener {
     }
 
     public void setStat(int code, boolean stat) {
-        if (isPressed.size() - 1 < code) {
-            for (int i = 0; code + 1 - isPressed.size() >= 1; i++) {
-                isPressed.add(false);
-            }
+        for (int i = isPressed.size(); i <= code; i++) {
+            isPressed.add(false);
         }
         isPressed.set(code, stat);
     }
@@ -47,6 +45,9 @@ public class KeyInput implements KeyListener {
     }
 
     public boolean isKeyPressed(int keyCode) {
+        for (int i = isPressed.size(); i <= keyCode; i++) {
+            isPressed.add(false);
+        }
         return isPressed.get(keyCode);
     }
 }
