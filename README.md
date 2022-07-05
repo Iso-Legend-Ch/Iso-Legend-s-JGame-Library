@@ -3,6 +3,8 @@ I'm still making, but it can work for now.
 Take a look at JavaDoc (link below) to know how you use them  
 Have fun with your coding time~
 
+(not the bete or release version for now, maybe not alpha, too)
+
 ## What include...?
 1. A awesome JavaDoc
 2. Position system with double
@@ -26,5 +28,5 @@ and...
 told me more in GitHub issue!
 
 ## Links
-[Github](https://github.com/Iso-Legend-Ch/Game_Engine_Lite)  
-[Java Doc](https://iso-legend-ch.github.io/Game_Engine_Lite/javaDoc/index.html)  
+[Github](https://github.com/Iso-Legend-Ch/Iso-Legend-s-JGame-Library)  
+[Java Doc](https://iso-legend-ch.github.io/Iso-Legend-s-JGame-Library/javaDoc/index.html)  
