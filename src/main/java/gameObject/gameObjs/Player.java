@@ -30,7 +30,7 @@ public class Player extends GameObject {
     @Override
     public void update() {
         //this.position = new Position(50,50);
-        this.position = new Position(MouseInput.get().getMousePosition().getX() - 25, MouseInput.get().getMousePosition().getY() - 25);
+        this.position = new Position(MouseInput.get().getMousePosition().x() - 25, MouseInput.get().getMousePosition().y() - 25);
     }
 
     @Override

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class KeyInput implements KeyListener {
     private static KeyInput keylistenerimpl = null;
 
-    private ArrayList<Boolean> isPressed;
+    private final ArrayList<Boolean> isPressed;
 
     private KeyInput() {
         isPressed = new ArrayList<>();

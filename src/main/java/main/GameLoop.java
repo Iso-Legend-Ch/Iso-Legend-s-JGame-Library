@@ -17,7 +17,7 @@ public class GameLoop implements Runnable {
     public int updateTime, renderTime;
     public int fps, ups;
 
-    private ArrayList<Timer> timers = new ArrayList<>();
+    private final ArrayList<Timer> timers = new ArrayList<>();
 
     private GameLoop() {
     }
@@ -46,6 +46,10 @@ public class GameLoop implements Runnable {
         while (running) {
             timers.forEach(Timer::update);
         }
+    }
+
+    public void stopLoop(){
+        running = false;
     }
 
     public int getFps() {

@@ -9,7 +9,6 @@ import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,8 +19,8 @@ import java.util.ArrayList;
 public class Frm {
     private static ArrayList<Frm> frm = null;
 
-    public JFrame frame;
-    public Canvas canvas;
+    public final JFrame frame;
+    public final Canvas canvas;
 
     private Frm() {
         frame = new JFrame();

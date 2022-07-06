@@ -1,9 +1,7 @@
 package main;
 
 public abstract class Timer {
-    private static GameLoop gameloop = null;
-
-    private double updateRate;
+    private final double updateRate;
     double lastUpdate, currentTimeMillis;
     double accumulator = 0;
 

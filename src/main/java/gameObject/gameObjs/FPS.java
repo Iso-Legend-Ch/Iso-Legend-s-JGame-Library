@@ -2,7 +2,6 @@ package gameObject.gameObjs;
 
 import config.FrmConsts;
 import core.Position;
-import core.Size;
 import gameObject.GameObject;
 import main.GameLoop;
 

@@ -14,7 +14,7 @@ public class MouseInput implements MouseListener, MouseMotionListener {
     private static MouseInput mouseinput = null;
 
     private boolean isClicked;
-    private ArrayList<Boolean> isPressed;
+    private final ArrayList<Boolean> isPressed;
     private Position mousePosition;
 
     private MouseInput() {

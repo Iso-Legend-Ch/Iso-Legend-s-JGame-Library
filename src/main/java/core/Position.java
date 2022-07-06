@@ -3,15 +3,11 @@ package core;
 /**
  * position, an important class here
  */
-public class Position {
-    private double x, y;
-
+public record Position(double x, double y) {
     /**
      * make a Position object
      */
-    public Position(double x, double y) {
-        this.x = x;
-        this.y = y;
+    public Position {
     }
 
     /**
@@ -31,14 +27,16 @@ public class Position {
     /**
      * get x of the object in double
      */
-    public double getX() {
+    @Override
+    public double x() {
         return this.x;
     }
 
     /**
      * get y of the object in double
      */
-    public double getY() {
+    @Override
+    public double y() {
         return this.y;
     }
 }
