@@ -1,7 +1,8 @@
 package gameObject.gameObjs;
 
-import config.FrmConfig;
+import config.FrmConsts;
 import core.Position;
+import core.Size;
 import gameObject.GameObject;
 import main.GameLoop;
 
@@ -18,6 +19,7 @@ public class FPS extends GameObject {
 
     private FPS() {
         this.position = new Position(0, 0);
+        this.size = FrmConsts.FRM_SIZE;
     }
 
     public static FPS get() {
@@ -34,8 +36,8 @@ public class FPS extends GameObject {
 
     @Override
     public Image render() {
-        Image image = new BufferedImage(Integer.valueOf(FrmConfig.WIDTH.getData())
-                , Integer.valueOf(FrmConfig.HEIGHT.getData())
+        Image image = new BufferedImage(FrmConsts.FRM_SIZE.getWidth()
+                , FrmConsts.FRM_SIZE.getHeight()
                 , BufferedImage.TYPE_INT_ARGB);
         Graphics graphics = image.getGraphics();
         graphics.setColor(Color.WHITE);

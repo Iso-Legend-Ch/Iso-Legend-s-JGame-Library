@@ -1,7 +1,7 @@
 package frm;
 
-import config.FrmConfig;
-import config.GameConfig;
+import config.FrmConsts;
+import config.GameConsts;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,9 +26,9 @@ public class Frm {
 
         canvas = new Canvas();
         canvas.setFocusable(false);
-        canvas.setSize(new Dimension(Integer.valueOf(FrmConfig.WIDTH.getData()), Integer.valueOf(FrmConfig.HEIGHT.getData())));
+        canvas.setSize(new Dimension(FrmConsts.FRM_SIZE.getWidth(), FrmConsts.FRM_SIZE.getHeight()));
 
-        frame.setTitle(GameConfig.FRM_TITLE.getData());
+        frame.setTitle(GameConsts.FRM_TITLE);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().add(canvas);
         frame.setLocation(100, 100);
@@ -42,7 +42,7 @@ public class Frm {
      */
     public static Frm get(int frameNum) {
         if (frm == null) {
-            frm = new ArrayList<Frm>();
+            frm = new ArrayList<>();
         }
         if (frm.size() <= frameNum) {
             for (int i = frm.size(); i <= frameNum; i++) {

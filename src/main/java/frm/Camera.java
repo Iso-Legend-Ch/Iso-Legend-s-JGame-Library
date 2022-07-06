@@ -1,6 +1,6 @@
 package frm;
 
-import config.FrmConfig;
+import config.FrmConsts;
 import core.Position;
 import gameObject.GameObject;
 
@@ -39,8 +39,8 @@ public class Camera {
             int objCenterX = gameObjectOnFocus.getPosition().getIntX() + (gameObjectOnFocus.getSize().getWidth() / 2);
             int objCenterY = gameObjectOnFocus.getPosition().getIntY() + (gameObjectOnFocus.getSize().getHeight() / 2);
 
-            this.setPosition(objCenterX - (Integer.parseInt(FrmConfig.WIDTH.getData()) / 2),
-                    objCenterY - (Integer.parseInt(FrmConfig.HEIGHT.getData()) / 2));
+            this.setPosition(objCenterX - (FrmConsts.FRM_SIZE.getHeight() / 2),
+                    objCenterY - (FrmConsts.FRM_SIZE.getWidth() / 2));
         }
     }
 

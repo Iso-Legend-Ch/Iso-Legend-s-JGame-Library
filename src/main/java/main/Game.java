@@ -1,9 +1,11 @@
 package main;
 
-import config.FrmConfig;
+import config.FrmConsts;
+import core.Position;
 import frm.Camera;
 import frm.Frm;
 import gameObject.GameObject;
+import gameObject.HitBox;
 import input.MouseInput;
 
 import java.awt.*;
@@ -15,8 +17,8 @@ import java.util.ArrayList;
 public class Game {
     private static Game game = null;
 
-    private ArrayList<GameObject> objects = new ArrayList<>();
-    private ArrayList<GameObject> guis = new ArrayList<>();
+    private final ArrayList<GameObject> objects = new ArrayList<>();
+    private final ArrayList<GameObject> guis = new ArrayList<>();
 
     private Game() {
     }
@@ -33,18 +35,22 @@ public class Game {
 
     public void render() {
         Frm.get().getCanvas().getBufferStrategy().getDrawGraphics().setColor(Color.black);
-        Frm.get().getCanvas().getBufferStrategy().getDrawGraphics().fillRect(0, 0, Integer.valueOf(FrmConfig.WIDTH.getData()), Integer.valueOf(FrmConfig.HEIGHT.getData()));
+        Frm.get().getCanvas().getBufferStrategy().getDrawGraphics().fillRect(0, 0, FrmConsts.FRM_SIZE.getWidth(), FrmConsts.FRM_SIZE.getHeight());
 
         objects.forEach(gameObject -> {
-            int x = gameObject.getPosition().getIntX() - Camera.get().getPosition().getIntX();
-            int y = gameObject.getPosition().getIntY() - Camera.get().getPosition().getIntY();
-            Frm.get().getCanvas().getBufferStrategy().getDrawGraphics().drawImage(gameObject.render(), x, y, null);
+            if (new HitBox(Camera.get().getPosition(), FrmConsts.FRM_SIZE).isHit(new HitBox(gameObject.getPosition(), gameObject.getSize()))) {
+                int x = gameObject.getPosition().getIntX() - Camera.get().getPosition().getIntX();
+                int y = gameObject.getPosition().getIntY() - Camera.get().getPosition().getIntY();
+                Frm.get().getCanvas().getBufferStrategy().getDrawGraphics().drawImage(gameObject.render(), x, y, null);
+            }
         });
 
         guis.forEach(gameObject -> {
-            int x = gameObject.getPosition().getIntX();
-            int y = gameObject.getPosition().getIntY();
-            Frm.get().getCanvas().getBufferStrategy().getDrawGraphics().drawImage(gameObject.render(), x, y, null);
+            if (new HitBox(new Position(0, 0), FrmConsts.FRM_SIZE).isHit(new HitBox(gameObject.getPosition(), gameObject.getSize()))) {
+                int x = gameObject.getPosition().getIntX() - Camera.get().getPosition().getIntX();
+                int y = gameObject.getPosition().getIntY() - Camera.get().getPosition().getIntY();
+                Frm.get().getCanvas().getBufferStrategy().getDrawGraphics().drawImage(gameObject.render(), x, y, null);
+            }
         });
 
         Frm.get().getCanvas().getBufferStrategy().getDrawGraphics().dispose();
@@ -53,12 +59,12 @@ public class Game {
 
     public void update() {
         if (MouseInput.get().isClicked()) {
-            objects.forEach(gameObject -> gameObject.mouseClick());
-            guis.forEach(gameObject -> gameObject.mouseClick());
+            objects.forEach(GameObject::mouseClick);
+            guis.forEach(GameObject::mouseClick);
             MouseInput.get().resetClickStat();
         }
-        objects.forEach(gameObject -> gameObject.update());
-        guis.forEach(gameObject -> gameObject.update());
+        objects.forEach(GameObject::update);
+        guis.forEach(GameObject::update);
         Camera.get().update();
     }
 
@@ -73,9 +79,7 @@ public class Game {
      * delete a gameObject
      */
     public void deleteObject(GameObject gameObject) {
-        if (objects.contains(gameObject)) {
-            objects.remove(gameObject);
-        }
+        objects.remove(gameObject);
     }
 
     /**
@@ -89,8 +93,6 @@ public class Game {
      * delete a gui
      */
     public void deleteGui(GameObject gameObject) {
-        if (guis.contains(gameObject)) {
-            guis.remove(gameObject);
-        }
+        guis.remove(gameObject);
     }
 }
