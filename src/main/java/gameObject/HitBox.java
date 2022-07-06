@@ -17,7 +17,7 @@ public class HitBox {
      * create a hitbox
      */
     public HitBox(Position position, Size size) {
-        rectangle = new Rectangle(position.getIntX(), position.getIntY(), size.getWidth(), size.getHeight());
+        rectangle = new Rectangle(position.getIntX(), position.getIntY(), size.width(), size.height());
     }
 
     /**

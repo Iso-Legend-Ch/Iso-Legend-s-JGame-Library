@@ -3,28 +3,25 @@ package core;
 /**
  * size, a class to told you how big the object is
  */
-public class Size {
-    int width, height;
-
+public record Size(int width, int height) {
     /**
      * make a Size object
      */
-    public Size(int w, int h) {
-        this.width = w;
-        this.height = h;
+    public Size {
+
     }
 
     /**
      * get width of the object
      */
-    public int getWidth() {
+    public int width() {
         return this.width;
     }
 
     /**
      * get height of object
      */
-    public int getHeight() {
+    public int height() {
         return this.height;
     }
 }

@@ -36,11 +36,11 @@ public class Camera {
 
     public void update() {
         if (gameObjectOnFocus != null) {
-            int objCenterX = gameObjectOnFocus.getPosition().getIntX() + (gameObjectOnFocus.getSize().getWidth() / 2);
-            int objCenterY = gameObjectOnFocus.getPosition().getIntY() + (gameObjectOnFocus.getSize().getHeight() / 2);
+            int objCenterX = gameObjectOnFocus.getPosition().getIntX() + (gameObjectOnFocus.getSize().width() / 2);
+            int objCenterY = gameObjectOnFocus.getPosition().getIntY() + (gameObjectOnFocus.getSize().height() / 2);
 
-            this.setPosition(objCenterX - (FrmConsts.FRM_SIZE.getHeight() / 2),
-                    objCenterY - (FrmConsts.FRM_SIZE.getWidth() / 2));
+            this.setPosition(objCenterX - (FrmConsts.FRM_SIZE.height() / 2),
+                    objCenterY - (FrmConsts.FRM_SIZE.width() / 2));
         }
     }
 

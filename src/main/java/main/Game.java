@@ -35,7 +35,7 @@ public class Game {
 
     public void render() {
         Frm.get().getCanvas().getBufferStrategy().getDrawGraphics().setColor(Color.black);
-        Frm.get().getCanvas().getBufferStrategy().getDrawGraphics().fillRect(0, 0, FrmConsts.FRM_SIZE.getWidth(), FrmConsts.FRM_SIZE.getHeight());
+        Frm.get().getCanvas().getBufferStrategy().getDrawGraphics().fillRect(0, 0, FrmConsts.FRM_SIZE.width(), FrmConsts.FRM_SIZE.height());
 
         objects.forEach(gameObject -> {
             if (new HitBox(Camera.get().getPosition(), FrmConsts.FRM_SIZE).isHit(new HitBox(gameObject.getPosition(), gameObject.getSize()))) {

@@ -35,8 +35,8 @@ public class FPS extends GameObject {
 
     @Override
     public Image render() {
-        Image image = new BufferedImage(FrmConsts.FRM_SIZE.getWidth()
-                , FrmConsts.FRM_SIZE.getHeight()
+        Image image = new BufferedImage(FrmConsts.FRM_SIZE.width()
+                , FrmConsts.FRM_SIZE.height()
                 , BufferedImage.TYPE_INT_ARGB);
         Graphics graphics = image.getGraphics();
         graphics.setColor(Color.WHITE);

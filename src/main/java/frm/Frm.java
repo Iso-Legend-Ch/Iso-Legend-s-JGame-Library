@@ -29,7 +29,7 @@ public class Frm {
 
         canvas = new Canvas();
         canvas.setFocusable(false);
-        canvas.setSize(new Dimension(FrmConsts.FRM_SIZE.getWidth(), FrmConsts.FRM_SIZE.getHeight()));
+        canvas.setSize(new Dimension(FrmConsts.FRM_SIZE.width(), FrmConsts.FRM_SIZE.height()));
 
         frame.setTitle(GameConsts.FRM_TITLE);
         try {
