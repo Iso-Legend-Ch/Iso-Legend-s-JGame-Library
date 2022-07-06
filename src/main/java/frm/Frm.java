@@ -3,11 +3,15 @@ package frm;
 import config.FrmConsts;
 import config.GameConsts;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -29,6 +33,11 @@ public class Frm {
         canvas.setSize(new Dimension(FrmConsts.FRM_SIZE.getWidth(), FrmConsts.FRM_SIZE.getHeight()));
 
         frame.setTitle(GameConsts.FRM_TITLE);
+        try {
+            frame.setIconImage(ImageIO.read(new File(FrmConsts.ICO_PATH)));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().add(canvas);
         frame.setLocation(100, 100);

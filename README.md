@@ -3,7 +3,7 @@ I'm still making, but it can work for now.
 Take a look at JavaDoc (link below) to know how you use them  
 Have fun with your coding time~
 
-(not the bete or release version for now, maybe not alpha, too)
+(not the beta or release version for now, maybe not alpha, too)
 
 ## What include...?
 1. A awesome JavaDoc
@@ -15,6 +15,7 @@ Have fun with your coding time~
 7. Costume fps and ups
 8. Timer for do something regularly
 9. High fps (only render things on screen)
+10. Custom frame icon
 
 ## What will I do next?
 most important part -> keep debugging  
