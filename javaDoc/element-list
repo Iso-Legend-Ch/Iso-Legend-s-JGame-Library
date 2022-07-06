@@ -3,6 +3,8 @@ core
 frm
 gameObject
 gameObject.gameObjs
+gameObject.gameObjs.defaultObj
+gameObject.gameObjs.sysObjs
 input
 main
 main.timers

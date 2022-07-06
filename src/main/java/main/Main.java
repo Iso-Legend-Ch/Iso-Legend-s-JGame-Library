@@ -1,8 +1,12 @@
 package main;
 
+import config.GameConsts;
+import core.Position;
 import frm.Frm;
-import gameObject.gameObjs.FPS;
+import gameObject.gameObjs.defaultObj.Text;
+import gameObject.gameObjs.sysObjs.FPS;
 import gameObject.gameObjs.Player;
+import gameObject.gameObjs.sysObjs.UPS;
 import input.KeyInput;
 import input.MouseInput;
 
@@ -32,8 +36,7 @@ public class Main {
 
         this.sysSetup();
 
-        /** do something under this */
-        Game.get().addGui(FPS.get());
+        // do something under this 
         Game.get().addObject(Player.get());
     }
 
@@ -42,5 +45,11 @@ public class Main {
         frm.addKeyListener(KeyInput.get());
         frm.addMouseListener(MouseInput.get());
         frm.addMouseMotionListener(MouseInput.get());
+
+        if (GameConsts.DEBUG_MODE) {
+            Game.get().addGui(new Text("You are in debug mode!", new Position(0, 5)));
+            Game.get().addGui(FPS.get());
+            Game.get().addGui(UPS.get());
+        }
     }
 }

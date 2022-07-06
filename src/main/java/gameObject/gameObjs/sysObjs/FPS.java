@@ -1,7 +1,7 @@
-package gameObject.gameObjs;
+package gameObject.gameObjs.sysObjs;
 
-import config.FrmConsts;
 import core.Position;
+import core.Size;
 import gameObject.GameObject;
 import main.GameLoop;
 
@@ -17,8 +17,8 @@ public class FPS extends GameObject {
     private static FPS fps = null;
 
     private FPS() {
-        this.position = new Position(0, 0);
-        this.size = FrmConsts.FRM_SIZE;
+        this.position = new Position(0, 20);
+        this.size = new Size(1, 1);
     }
 
     public static FPS get() {
@@ -35,12 +35,16 @@ public class FPS extends GameObject {
 
     @Override
     public Image render() {
-        Image image = new BufferedImage(FrmConsts.FRM_SIZE.width()
-                , FrmConsts.FRM_SIZE.height()
+        String text = "FPS: " + loopFps;
+        FontMetrics fontMetrics = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB).getGraphics().getFontMetrics();
+        this.size = new Size(fontMetrics.stringWidth(text), fontMetrics.getFont().getSize());
+
+        Image image = new BufferedImage(size.width()
+                , size.height()
                 , BufferedImage.TYPE_INT_ARGB);
         Graphics graphics = image.getGraphics();
         graphics.setColor(Color.WHITE);
-        graphics.drawString("FPS: " + loopFps, 0, 10);
+        graphics.drawString(text, 0, 10);
         graphics.dispose();
 
         return image;

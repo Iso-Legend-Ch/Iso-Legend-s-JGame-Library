@@ -7,26 +7,25 @@ Have fun with your coding time~
 
 ## What include...?
 1. A awesome JavaDoc
-2. Costume fps and ups
-3. High fps (only render things on screen)
-4. Position system with double
-5. Camera
-6. Key input and mouse input
-7. Clear packages
-8. Hitbox
-9. Timer for do something regularly
-10. Custom frame icon
+2. debug mode (and there will be more things later)
+3. Costume fps and ups
+4. High fps (only render things on screen)
+5. Position system with double
+6. Camera
+7. Key input and mouse input
+8. Clear packages
+9. Hitbox
+10. Timer for do something regularly
+11. Custom frame icon
 
 ## What will I do next?
 most important part -> keep debugging  
 
 and...
-1. debug mode
-2. more default objects
-3. make doc better
-4. check permissions
-5. music system
-6. 
+1. more default objects
+2. make doc better
+3. check permissions
+4. music system
 
 told me more in GitHub issue!
 
