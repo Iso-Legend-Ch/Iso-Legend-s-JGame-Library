@@ -11,7 +11,7 @@ import java.awt.*;
 public class HitBox {
     private static HitBox hitBox;
 
-    private Rectangle rectangle;
+    private final Rectangle rectangle;
 
     /**
      * create a hitbox
@@ -42,7 +42,7 @@ public class HitBox {
         if (this.rectangle.isEmpty() || hitBox.getRectangle().isEmpty()) {
             isHit = false;
         } else {
-            isHit = this.rectangle.contains(hitBox.getRectangle());
+            isHit = this.rectangle.intersects(hitBox.getRectangle());
         }
         return isHit;
     }

@@ -14,16 +14,16 @@ Have fun with your coding time~
 6. Hitbox
 7. Costume fps and ups
 8. Timer for do something regularly
+9. High fps (only render things on screen)
 
 ## What will I do next?
 most important part -> keep debugging  
 
 and...
-1. higher fps
-2. debug mode
-3. more default objects
-4. make doc better
-5. check permissions
+1. debug mode
+2. more default objects
+3. make doc better
+4. check permissions
 
 told me more in GitHub issue!
 
